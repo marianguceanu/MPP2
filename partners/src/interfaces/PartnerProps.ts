@@ -5,4 +5,5 @@ export interface PartnerProps {
   phone: string;
   email: string;
   ownerPhoneNo: string;
+  contacts: number;
 }

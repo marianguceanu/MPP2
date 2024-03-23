@@ -1,6 +1,6 @@
 import { PartnerProps } from "../interfaces/PartnerProps";
 
-export const partners: PartnerProps[] = [
+export var partners: PartnerProps[] = [
   {
     id: 1,
     name: "ABC Company",
@@ -8,6 +8,7 @@ export const partners: PartnerProps[] = [
     phone: "555-1234",
     email: "abc@company.com",
     ownerPhoneNo: "555-1234",
+    contacts: 100,
   },
   {
     id: 2,
@@ -16,5 +17,15 @@ export const partners: PartnerProps[] = [
     phone: "555-5678",
     email: "xyzcompany@xyz.com",
     ownerPhoneNo: "555-5678",
+    contacts: 20,
+  },
+  {
+    id: 3,
+    name: "asd Enterprise",
+    address: "akshbdajsi",
+    phone: "555-5678",
+    email: "ashdbshkab@xyz.com",
+    ownerPhoneNo: "555-5678",
+    contacts: 1000,
   },
 ];

@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { PartnerProps } from "../interfaces/PartnerProps";
 
-export default function Partner(props: PartnerProps) {
+const Partner = (props: PartnerProps) => {
   return (
     <div>
       <Link to="/">
@@ -13,6 +13,9 @@ export default function Partner(props: PartnerProps) {
       <p>{"Phone number: " + props.phone}</p>
       <p>{"Email: " + props.email}</p>
       <p>{"Owner phone number: " + props.ownerPhoneNo}</p>
+      <p>{"Contacts: " + props.contacts}</p>
     </div>
   );
-}
+};
+
+export default Partner;
