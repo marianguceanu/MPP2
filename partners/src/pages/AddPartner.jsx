@@ -26,8 +26,7 @@ const AddPartner = () => {
               phoneNumber: inputs.phoneNumber,
               contactPerson: inputs.contactPerson,
             };
-            const added = addPartnerToServer(partner);
-            console.log(added);
+            addPartnerToServer(partner);
           }}
         >
           Save

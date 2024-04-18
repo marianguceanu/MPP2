@@ -26,11 +26,13 @@ export const getByIdFromServer = async (id) => {
     phoneNumber: partner.data.phoneNumber,
     contactPerson: partner.data.contactPerson,
     email: partner.data.email,
+    reach: 100,
   };
 };
 
 export const addPartnerToServer = async (partner) => {
   const part = await axios.post(`${partnersUrl}`, partner);
+  console.log(part.data);
   return part.data;
 };
 

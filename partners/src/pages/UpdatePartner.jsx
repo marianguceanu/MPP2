@@ -8,7 +8,8 @@ import { PartnersContext } from "../providers/PartnersGlobalState";
 const UpdatePartner = () => {
   const { id } = useParams();
   const [partner] = useState({});
-  const { updatePartnerToServer } = useContext(PartnersContext);
+  const { partners, setPartners, updatePartnerToServer } =
+    useContext(PartnersContext);
 
   return (
     <>
@@ -71,7 +72,15 @@ const UpdatePartner = () => {
               phoneNumber: inputs.phoneNumber || "empty",
               contactPerson: inputs.contactPerson || "empty",
             };
-            updatePartnerToServer(id, toUpdate);
+            const updated = updatePartnerToServer(id, toUpdate);
+            console.log(updated);
+            const newPartners = partners.map((partner) => {
+              if (partner.id === id) {
+                return updated;
+              }
+              return partner;
+            });
+            setPartners(newPartners);
           }}
         >
           Save

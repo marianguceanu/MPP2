@@ -14,7 +14,7 @@ export const PartnersContext = createContext({
   setPartner: () => {},
   setPartners: () => {},
   getAllFromServer: () => {},
-  getByIdFromServer: (id) => {},
+  getByIdFromServer: () => {},
   addPartnerToServer: () => {},
   updatePartnerToServer: () => {},
   deletePartnerFromServer: () => {},
@@ -35,7 +35,7 @@ const PartnersGlobalState = ({ children }) => {
     deletePartnerFromServer,
   };
   return (
-    <PartnersContext.Provider value={value}>
+    <PartnersContext.Provider value={{ getByIdFromServer, ...value }}>
       {children}
     </PartnersContext.Provider>
   );

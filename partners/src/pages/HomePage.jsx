@@ -8,6 +8,7 @@ const HomePage = () => {
     useContext(PartnersContext);
   useEffect(() => {
     getAllFromServer().then((data) => {
+      console.log(data);
       setPartners(data);
     });
   }, []);

@@ -6,6 +6,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import PartnerCard from "./components/PartnerCard";
 import AddPartner from "./pages/AddPartner";
 import UpdatePartner from "./pages/UpdatePartner";
+import PartnersProvider from "./providers/PartnersGlobalState";
 
 const router = createBrowserRouter([
   {
@@ -28,6 +29,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <PartnersProvider>
+      <RouterProvider router={router} />
+    </PartnersProvider>
   </React.StrictMode>,
 );

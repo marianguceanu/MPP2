@@ -1,15 +1,23 @@
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
-import { useEffect } from "react";
-import { useContext } from "react";
+import { useEffect, useContext } from "react";
 import { PartnersContext } from "../providers/PartnersGlobalState";
 
 const PartnerCard = () => {
   const { id } = useParams();
-  const { getByIdFromServer, deletePartnerFromServer, partner, setPartner } =
-    useContext(PartnersContext);
+  const {
+    partner,
+    partners,
+    setPartner,
+    setPartners,
+    getByIdFromServer,
+    deletePartnerFromServer,
+  } = useContext(PartnersContext);
   useEffect(() => {
-    setPartner(getByIdFromServer(id));
+    getByIdFromServer(id).then((data) => {
+      setPartner(data);
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -27,6 +35,13 @@ const PartnerCard = () => {
         <button
           onClick={() => {
             deletePartnerFromServer(id);
+            const newPartners = partners.map((partner) => {
+              if (partner.id === id) {
+                return null;
+              }
+              return partner;
+            });
+            setPartners(newPartners);
           }}
         >
           Delete
